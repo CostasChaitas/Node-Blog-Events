@@ -7,7 +7,6 @@ var Category = require("../models/category");
 var Post = require("../models/post");
 
 
-
 /* GET users listing. */
 router.get('/add',isLoggedIn, function(req, res, next) {
     

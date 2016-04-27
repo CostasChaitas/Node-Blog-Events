@@ -20,4 +20,21 @@ router.get('/', function(req, res, next) {
 });
 
 
+router.get('/:id', function(req, res, next) {
+    
+    var id = req.params.id;
+    
+    Post.find({"_id": id}, function(err, post){
+      if(err){
+        console.log(err);
+      }else{
+        console.log(post);
+         res.render('show',{
+			"post": post[0]
+		}); 
+      }	
+	});  
+});
+
+
 module.exports = router;
