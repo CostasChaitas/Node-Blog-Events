@@ -29,6 +29,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
             <ul class="nav navbar-nav">
+                 
 
                  <% if(!currentUser) { %>
                     <li><a href="/contact">Contact</a></li>
@@ -37,6 +38,7 @@
                 <%} else { %>
                     <li><a href="/aboutus">About</a></li>
                     <li><a href="/contact">Contact</a></li>
+                    <li><a href="/posts/add">Add Post</a></li>
                 <% } %>
 
               
@@ -54,6 +56,7 @@
                 <% } %>
 
             </ul>
+            
         </div>
         <!-- /.navbar-collapse -->
     </div>

@@ -1,0 +1,21 @@
+<% include ./partials/header %>
+
+<div class="col-md-8">
+    <div class="container">
+      <% posts.forEach(function(post){ %>
+           <div class="content-grid-info">                   
+                <img src="/uploads/<%= post.mainImageName %>" alt="">
+                <div class="post-info">
+                    <h4><a href="single.html"><%= post.title %></a> <%= moment(post.date).format("MMM Do YY") %></h4>
+                    <p><%= post.body %></p>
+                    <a href="single.html"><span></span>READ MORE</a>
+                </div>
+            </div> 
+       <% }); %> 
+    </div>
+</div>
+
+
+
+
+<% include ./partials/footer %>

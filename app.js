@@ -11,12 +11,15 @@ var LocalStrategy = require('passport-local');
 var flash = require("connect-flash");
 var morgan = require('morgan');
 var session = require('express-session');
+var crypto = require('crypto');
 
 var User = require("./models/user");
 
 var routes = require('./routes/index');
 var aboutus = require('./routes/aboutus');
 var categories = require('./routes/categories');
+var posts = require('./routes/posts');
+var blog = require('./routes/blog');
 
 var app = express();
 
@@ -25,6 +28,7 @@ require('./config/passport')(passport); // pass passport for configuration
 //log every req to the console
 app.use(morgan('dev'));
 
+app.locals.moment = require("moment");
 
 app.use(require('express-session')({
     secret: 'Testaki',
@@ -38,8 +42,9 @@ app.use(passport.session());
 app.use(flash());
 
 app.use(function (req,res,next) {
-	
 	res.locals.currentUser = req.user;
+    res.locals.messages = require('express-messages')(req, res);
+   
 	next();
 });
 
@@ -82,10 +87,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+//this actually makes route of /upload and access uploads folder
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
 app.use('/', routes);
 app.use('/aboutus', aboutus);
 app.use('/categories', categories);
+app.use('/posts', posts);
+app.use('/blog', blog);
 
 /*
 

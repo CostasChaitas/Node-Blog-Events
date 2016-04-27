@@ -14,7 +14,7 @@ router.get('/register', function(req, res) {
 });
 
 // app.post('/signup', do all our passport stuff here);
- router.post('/register', passport.authenticate('local-signup', {
+router.post('/register', passport.authenticate('local-signup', {
     successRedirect : '/', // redirect to the secure profile section
     failureRedirect : '/register', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
