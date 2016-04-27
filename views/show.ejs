@@ -3,7 +3,7 @@
 <div class="col-md-8">
     <div class="container">
            <div class="content-grid-info">                   
-                <img src="/uploads/<%= post.mainImageName %>" alt="">
+                <img src="/uploads/<%= post.mainImageName %>" class="postImages" alt="">
                 <div class="post-info">
                     <h4><%= post.title %> by <%= post.author %> on <%= moment(post.date).format("MMM Do YY") %></h4>
                     <p><%= post.body %></p>

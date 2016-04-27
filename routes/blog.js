@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
       if(err){
         console.log(err);
       }else{
-        
+        console.log(posts[1].category);
          res.render('blog',{
 			"posts": posts
 		}); 
