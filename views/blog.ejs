@@ -2,7 +2,7 @@
 <div class="logo col-md-12">
     <img alt="Minimal Clean Responsive" height="220px; " id="logo" src="http://2.bp.blogspot.com/-X06cj7cX0X8/VQ7IoUng9cI/AAAAAAAAEhM/2TNeAsAsTV8/s1600/MINIMAL-LOGO-NEW.png" width="420px;" class="center-block img-responsive">
 </div>
-<div class="left-bar container col-md-offset-2 col-md-5">
+<div class="left-bar container col-md-offset-1 col-md-6">
           <% posts.forEach(function(post){ %>
                <div class="article">
                    <div class="category col-md-12">
@@ -23,16 +23,20 @@
                    <div class="readMore col-md-12">
                        <a href="/blog/<%= post.id %>"><button type="button" class="readMoreBtn btn-success ">Read More...</button></a>                
                    </div>
+                   <div class="post-share col-md-12">
+                        <a href="#" target="_blank"><span class="share-box"><i class="fa fa-facebook"></i></span></a>
+                        <a href="#" target="_blank"><span class="share-box"><i class="fa fa-twitter"></i></span></a>
+                        <a href="#" target="_blank"><span class="share-box"><i class="fa fa-instagram"></i></span></a>
+                   </div>
                 </div> 
            <% }); %> 
-        </div>
-    </div>
+            
 </div>
 
 <div class="right-bar container col-md-5">
    
    <div class="rightBarWidget">
-      <h2 class="title"><span class="titlePost">ABOUT ME</span></h2>
+      <h2 class="rightBartitle"><span class="titlePost">ABOUT ME</span></h2>
       <div class="aboutMeImg">
           <img src="/uploads/me.jpeg" class="center-block img-responsive">
       </div>
@@ -43,7 +47,7 @@
       
       
    <div class="rightBarWidget">
-       <h2 class="title"><span class="titlePost">CATEGORIES</span></h2>
+       <h2 class="rightBartitle"><span class="titlePost">CATEGORIES</span></h2>
        <div class="cats-content">
            <ul class="categories">
                 <% cats.forEach(function(cat){ %>
@@ -55,7 +59,7 @@
 
     
     <div class="rightBarWidget">
-       <h2 class="title"><span class="titlePost">BLOG ARCHIVE</span></h2>
+       <h2 class="rightBartitle"><span class="titlePost">BLOG ARCHIVE</span></h2>
        <div class="date-content">
            <ul class="dates">
                 <% months.forEach(function(month){ %>
@@ -66,19 +70,19 @@
     </div> 
     
     <div class="rightBarWidget">
-       <h2 class="title"><span class="titlePost">FOLLOW US</span></h2>
+       <h2 class="rightBartitle"><span class="titlePost">FOLLOW US</span></h2>
           <div class="row">
               <ul class="followUs col-md-12">
                 <li class="col-md-4"><a href="#" class="facebook" target="_blank" title="Facebook"><i class="fa fa-facebook"></i>Facebook</a></li>
-                <li class="col-md-4"><a href="#" class="twitter" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>Twitter</li>
-                <li class="col-md-4"><a href="#" class="instagram" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>Instagram</li>
+                <li class="col-md-4"><a href="#" class="twitter" target="_blank" title="Twitter"><i class="fa fa-twitter"></i>Twitter</a></li>
+                <li class="col-md-4"><a href="#" class="instagram" target="_blank" title="Instagram"><i class="fa fa-instagram"></i>Instagram</a></li>
             </ul>
           </div>
            
     </div>
     
     <div class="rightBarWidget">
-       <h2 class="title"><span class="titlePost">RECENT POST</span></h2>
+       <h2 class="rightBartitle"><span class="titlePost">RECENT POST</span></h2>
        <div class="recentPost-content">
            <ul class="recentPost">
                 <% recentPosts.forEach(function(recentPost){ %>
@@ -94,7 +98,7 @@
                             
                         </div>
                     </div>         
-                    </li></a>
+              
                 <% }); %> 
             </ul>
        </div>
