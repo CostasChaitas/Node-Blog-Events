@@ -10,6 +10,7 @@ var postSchema = new mongoose.Schema({
     author : String,
     body : String, 
     date : Date ,
+    month : String,
     mainImageName : String,
     mainImageOriginalName: String
         

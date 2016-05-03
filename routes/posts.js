@@ -29,6 +29,10 @@ router.post('/add', multerMiddleware.single('mainImageName'), function(req, res,
     var author 	    = req.body.author;
 	var body 		= req.body.body;
 	var date 		= new Date();
+    var monthNames  = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+    var month       = monthNames[date.getMonth()];
     
     
     var mainImageName 			= "noimage.png";
@@ -53,6 +57,7 @@ router.post('/add', multerMiddleware.single('mainImageName'), function(req, res,
         author: author,
         body : body,
         date: date,
+        month: month,
         mainImageName: mainImageName,
         mainImageOriginalName: mainImageOriginalName
     }

@@ -82,4 +82,24 @@
     margin-bottom: 30px;
 }
 
+.categories-widget{
+    margin-top: 30px;
+    width: 250px;
+    margin-right: 0;
+    float: none;
+    margin-bottom: 30px;
+    padding: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(34,34,34,0.1);
+}
+
+.categories-widget h2 span{
+  
+}
+
+.sumCategories{
+    list-style: none;
+}
+
 

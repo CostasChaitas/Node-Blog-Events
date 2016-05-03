@@ -6,7 +6,7 @@
           <% posts.forEach(function(post){ %>
                <div class="article">
                    <div class="category col-md-12">
-                      <p><%= post.category %></p>                 
+                       <a href="/blog/category/<%= post.category %>"><p><%= post.category %></p></a>               
                    </div>
                    <div class="title col-md-12">
                        <a href="/blog/<%= post.id %>"><%= post.title %></a>  
@@ -15,7 +15,7 @@
                       <p><%= moment(post.date).format("MMM Do YY") %></p>                 
                    </div> 
 
-                   <img src="/uploads/<%= post.mainImageName %>" alt="<%= post.mainImageName %>" class='image'>                 
+                    <a href="/blog/<%= post.id %>"><img src="/uploads/<%= post.mainImageName %>" alt="<%= post.mainImageName %>" class='image img-responsive' ></a>                
 
                    <div class="body col-md-12">
                       <p><%= post.body %></p>                
@@ -27,6 +27,31 @@
            <% }); %> 
         </div>
     </div>
+</div>
+
+<div class="right-bar container col-md-5">
+    
+   <div class="categories-widget">
+       <h2 class="title"><span>Categories</span></h2>
+       <div class="cats-content">
+           <ul class="categories">
+                <% cats.forEach(function(cat){ %>
+                    <a href="/blog/category/<%= cat %>"><li class="sumCategories"><%= cat %></li></a>
+                <% }); %> 
+            </ul>
+       </div>
+    </div>
+    
+    <div class="date-widget">
+       <h2 class="title"><span>Blog Archive</span></h2>
+       <div class="date-content">
+           <ul class="dates">
+                <% months.forEach(function(month){ %>
+                    <a href="/blog/date/<%= month %>"><li class="sumMonths"><%= month %></li></a>
+                <% }); %> 
+            </ul>
+       </div>
+    </div> 
 </div>
 
 

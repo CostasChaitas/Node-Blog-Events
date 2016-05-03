@@ -3,6 +3,7 @@
 
 
 <div class="container col-md-offset-2 col-md-5">
+    <% posts.forEach(function(post){ %>
                <div class="article">
                    <div class="category col-md-12">
                       <p><%= post.category %></p>                 
@@ -21,8 +22,8 @@
                    </div>
 
                 </div> 
-        </div>
-    </div>
+
+           <% }); %> 
 </div>
 
 
