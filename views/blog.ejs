@@ -1,6 +1,6 @@
 <% include ./partials/header %>
 <div class="logo col-md-12">
-    <img alt="Minimal Clean Responsive" height="220px; " id="logo" src="http://2.bp.blogspot.com/-X06cj7cX0X8/VQ7IoUng9cI/AAAAAAAAEhM/2TNeAsAsTV8/s1600/MINIMAL-LOGO-NEW.png" width="420px;" class="center-block">
+    <img alt="Minimal Clean Responsive" height="220px; " id="logo" src="http://2.bp.blogspot.com/-X06cj7cX0X8/VQ7IoUng9cI/AAAAAAAAEhM/2TNeAsAsTV8/s1600/MINIMAL-LOGO-NEW.png" width="420px;" class="center-block img-responsive">
 </div>
 <div class="left-bar container col-md-offset-2 col-md-5">
           <% posts.forEach(function(post){ %>
@@ -30,9 +30,20 @@
 </div>
 
 <div class="right-bar container col-md-5">
-    
-   <div class="categories-widget">
-       <h2 class="title"><span>Categories</span></h2>
+   
+   <div class="rightBarWidget">
+      <h2 class="title"><span class="titlePost">ABOUT ME</span></h2>
+      <div class="aboutMeImg">
+          <img src="/uploads/me.jpeg" class="center-block img-responsive">
+      </div>
+      <div class="aboutMeText">
+          <p>I'm Rabeca - I'm a Sneakeraholic. I'm passionate at Beauty, Travel, Fashion. This blog is a place where I want to share all the things I love to you! Keep</p>
+      </div>
+   </div>
+      
+      
+   <div class="rightBarWidget">
+       <h2 class="title"><span class="titlePost">CATEGORIES</span></h2>
        <div class="cats-content">
            <ul class="categories">
                 <% cats.forEach(function(cat){ %>
@@ -41,9 +52,10 @@
             </ul>
        </div>
     </div>
+
     
-    <div class="date-widget">
-       <h2 class="title"><span>Blog Archive</span></h2>
+    <div class="rightBarWidget">
+       <h2 class="title"><span class="titlePost">BLOG ARCHIVE</span></h2>
        <div class="date-content">
            <ul class="dates">
                 <% months.forEach(function(month){ %>
@@ -52,6 +64,43 @@
             </ul>
        </div>
     </div> 
+    
+    <div class="rightBarWidget">
+       <h2 class="title"><span class="titlePost">FOLLOW US</span></h2>
+          <div class="row">
+              <ul class="followUs col-md-12">
+                <li class="col-md-4"><a href="#" class="facebook" target="_blank" title="Facebook"><i class="fa fa-facebook"></i>Facebook</a></li>
+                <li class="col-md-4"><a href="#" class="twitter" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>Twitter</li>
+                <li class="col-md-4"><a href="#" class="instagram" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>Instagram</li>
+            </ul>
+          </div>
+           
+    </div>
+    
+    <div class="rightBarWidget">
+       <h2 class="title"><span class="titlePost">RECENT POST</span></h2>
+       <div class="recentPost-content">
+           <ul class="recentPost">
+                <% recentPosts.forEach(function(recentPost){ %>
+                    <div class="row">
+                        <div class="side-item col-md-12">
+                           <div class="side-image">
+                               <a href="/blog/<%= recentPost.id %>"><img src="/uploads/<%= recentPost.mainImageName %>" alt="<%= recentPost.mainImageName %>" class='image img-responsive' ></a>
+                           </div>
+                           <div class="side-text">
+                               <a href="/blog/<%= recentPost.id %>"><h4 class="side-title"><%= recentPost.title %></h4></a>
+                               <p class="side-date"><%= moment(recentPost.date).format("MMM Do YY") %></p>  
+                           </div>
+                            
+                        </div>
+                    </div>         
+                    </li></a>
+                <% }); %> 
+            </ul>
+       </div>
+    </div> 
+    
+ 
 </div>
 
 

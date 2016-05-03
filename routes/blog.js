@@ -15,6 +15,7 @@ router.get('/', function(req, res, next) {
           
         var cats = [];
         var months = [];
+        var recentPosts = [];
           
           
         (function containsCat(){
@@ -41,19 +42,32 @@ router.get('/', function(req, res, next) {
                    if(mon === "month"){
                        
                        if(months.indexOf(arr["month"]) == -1){
-                           months.push(arr["month"]);
-                           
+                        
+                           if(arr["month"] !== undefined){
+                               months.push(arr["month"]);
+                           }              
                        }                                         
                    }                    
               }                               
             }return months;                        
         })();
           
-          
+        (function recentMonths(){
+            for (var i=posts.length; i+6>(posts.length); i--){ 
+                if(posts[i] !== undefined){
+                    recentPosts.push(posts[i]); 
+                }  
+                
+                
+            }return recentPosts;                        
+        })();  
+          console.log(recentPosts);
+       
          res.render('blog',{
 			"posts": posts,
              "cats": cats,
-             "months": months
+             "months": months,
+             "recentPosts":recentPosts
 		 }); 
       }	
 	});  

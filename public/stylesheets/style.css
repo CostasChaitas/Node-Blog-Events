@@ -82,9 +82,9 @@
     margin-bottom: 30px;
 }
 
-.categories-widget{
-    margin-top: 30px;
-    width: 250px;
+.rightBarWidget{
+    margin-top: 50px;
+    width: 320px;
     margin-right: 0;
     float: none;
     margin-bottom: 30px;
@@ -94,12 +94,126 @@
     border-color: rgba(34,34,34,0.1);
 }
 
-.categories-widget h2 span{
-  
+
+.sumCategories, .sumMonths{
+    color: #646464;
+    list-style-type:none;
+    margin-bottom: 7px;
+    padding-bottom: 7px;
+    font-family: Lora;
+    font-size: 15px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.75;
+    letter-spacing: 0px;
+    text-transform: none;
 }
 
-.sumCategories{
+.side-image, ..side-text{
+    display:inline
+}
+
+.side-image{
+        float: left;
+    margin-right: 14px;
+}
+
+.side-image img{
+    width: 86px;
+    height: 86px;
+}
+
+.side-title{
+    font-family: Raleway;
+    font-weight: normal;
+    margin-bottom: 1px;
+    color: #333;
+    display: block;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.side-date{
+    margin-top:15px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #999;
+    font-style: italic;
+    font-family: "Open Sans";
+}
+
+.title{
+    font-family: Raleway;
+    font-size: 16px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin-top: -10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.titlePost{
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 30px;
+    background-color: #fff;
+}
+
+.aboutMeImg img{
+    height:240px;
+    width:240px;
+    border-radius:100%;
+    text-align: center;
+}
+
+.aboutMeText{
+    padding:15px;
+     color: #777;
+    font-family: Lora;
+    font-size: 15px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.75;
+    letter-spacing: 0px;
+    text-transform: none; 
+}
+
+.followUs li{
+    margin-bottom: 7px;
+    padding-bottom: 7px;
+    text-align: center;
+    width: 32.2222%;
+    display: inline-block;
+    padding: 0;
     list-style: none;
 }
 
+.followUs a{
+    margin: 20px auto 0 auto;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: #646464;
+}
 
+.followUs i {
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+    line-height: 32px;
+    text-align: center;
+    font-size: 14px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    border-radius: 16px;
+    color: #fff;
+    background-color: #000;
+    display: block;
+}
