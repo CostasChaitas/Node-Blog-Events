@@ -1,0 +1,44 @@
+<% include ./partials/header %>
+
+
+<div class="logo col-md-12">
+    <img alt="Minimal Clean Responsive" height="220px; " id="logo" src="http://2.bp.blogspot.com/-X06cj7cX0X8/VQ7IoUng9cI/AAAAAAAAEhM/2TNeAsAsTV8/s1600/MINIMAL-LOGO-NEW.png" width="420px;" class="center-block img-responsive">
+</div>
+
+<div class="events container col-md-offset-1 col-md-6">
+          <% events.forEach(function(event){ %>
+               <div class="event col-md-12">
+                   <div class="photo col-md-6 col-sm-12">
+                      <img src="/uploads/<%= event.mainImageName %>" alt="<%= event.mainImageName %>" class='image img-responsive' >               
+                   </div>
+                   <div class="details col-md-6 col-sm-12">
+                      <h4><%= event.title %> </h4>  
+                      
+                     
+                      
+                      <h2><%= event.location %> </h2> 
+                    
+                      <p><%= event.body %> </p>  
+                      
+                        
+                      
+                            
+                   </div>
+                   
+                </div> 
+                
+                <div class="post-share col-md-12">
+                        <a href="#" target="_blank"><span class="share-box"><i class="fa fa-facebook"></i></span></a>
+                        <a href="#" target="_blank"><span class="share-box"><i class="fa fa-twitter"></i></span></a>
+                        <a href="#" target="_blank"><span class="share-box"><i class="fa fa-instagram"></i></span></a>
+                   </div>
+           <% }); %>          
+</div>
+
+
+
+
+
+
+
+<% include ./partials/footer %>

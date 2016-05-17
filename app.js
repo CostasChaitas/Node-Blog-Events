@@ -17,9 +17,10 @@ var User = require("./models/user");
 
 var routes = require('./routes/index');
 var aboutus = require('./routes/aboutus');
-var categories = require('./routes/categories');
 var posts = require('./routes/posts');
 var blog = require('./routes/blog');
+var gallery = require('./routes/gallery');
+var events = require('./routes/events');
 
 var app = express();
 
@@ -92,9 +93,10 @@ app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
 app.use('/', routes);
 app.use('/aboutus', aboutus);
-app.use('/categories', categories);
 app.use('/posts', posts);
 app.use('/blog', blog);
+app.use('/gallery', gallery);
+app.use('/events', events);
 
 /*
 

@@ -3,19 +3,32 @@ var router = express.Router();
 var mongoose   = require('mongoose');
 var multerMiddleware = require("../middlewares/multer");
 
-
-var Post = require("../models/post");
-
+var Gallery = require("../models/gallery");
 
 /* GET users listing. */
-router.get('/add',isLoggedIn, function(req, res, next) {
+router.get('/', function(req, res, next) {
     
-  Post.find({},{}, function(err, categories){
+  Gallery.find({},{}, function(err, photos){
       if(err){
         console.log(err);
       }else{
         
-         res.render('addpost',{
+         res.render('gallery',{
+			"photos":photos
+		}); 
+      }	
+	});  
+});
+
+/* GET users listing. */
+router.get('/add',isLoggedIn, function(req, res, next) {
+    
+  Gallery.find({},{}, function(err, photos){
+      if(err){
+        console.log(err);
+      }else{
+        
+         res.render('addGallery',{
 			
 		}); 
       }	
@@ -26,36 +39,22 @@ router.post('/add', multerMiddleware.single('mainImageName'), function(req, res,
 	// Get Form Values
 	var title 		= req.body.title;
 	var category 	= req.body.category;
-    var author 	    = req.body.author;
-	var body 		= req.body.body;
 	var date 		= new Date();
     var monthNames  = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
     var month       = monthNames[date.getMonth()];
-    
-    
-    var mainImageName 			= "noimage.png";
-	var mainImageOriginalName 	= "";
-	var mainImageMime 			= "";
-	var mainImagePath 			= "";
-	var mainImageSize 			= "";
-    
 
-    
-    if( typeof req.file !== "undefined") {
-      mainImageName 			= req.file['filename'] ;
-      mainImageOriginalName 	= req.file['originalname'];
-	  mainImageMime 			= req.file['mimetype'];
-	  mainImagePath 			= req.file['path'];
-	  mainImageSize 			= req.file['size'];
-	}
+      var mainImageName 			= req.file['filename'] ;
+      var mainImageOriginalName 	= req.file['originalname'];
+	  var mainImageMime 			= req.file['mimetype'];
+	  var mainImagePath 			= req.file['path'];
+	  var mainImageSize 			= req.file['size'];
+	
 
-    newPost = {
+    newGallery = {
         title: title,
         category: category,
-        author: author,
-        body : body,
         date: date,
         month: month,
         mainImageName: mainImageName,
@@ -63,13 +62,14 @@ router.post('/add', multerMiddleware.single('mainImageName'), function(req, res,
     }
     
    
-    Post.create(newPost,function(err, ok){
+    Gallery.create(newGallery,function(err, ok){
         if(err){
             console.log(err);
             
         }else{
            
             console.log(ok);
+            
             res.render('index', { message: req.flash('info') });
         }
     });

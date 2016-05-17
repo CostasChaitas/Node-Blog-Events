@@ -4,6 +4,10 @@ var mongoose = require('mongoose');
 
 var Post = require("../models/post");
 
+var post= [];
+
+var posts = [];
+
 
 router.get('/', function(req, res, next) {
     
@@ -77,18 +81,42 @@ router.get('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
     
     var id = req.params.id;
+   
     
-    Post.find({"_id": id}, function(err, post){
+
+    
+    Post.find({},{}, function(err, posts){
       if(err){
         console.log(err);
       }else{
-        console.log(post);
+          
+       
+         console.log(idPost); 
          res.render('show',{
-			"post": post[0]
+			"posts": posts
+		});  
+		     
+      }
+    });
+    
+    
+     Post.find({"_id": id}, function(err, post){
+      if(err){
+        console.log(err);
+      }else{
+         
+         console.log(post);
+         res.render('show',{
+			"post": post
 		}); 
       }	
 	});  
+    
+    
 });
+    
+    
+
 
 router.get('/category/:category', function(req, res, next) {
     

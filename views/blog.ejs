@@ -1,7 +1,10 @@
 <% include ./partials/header %>
+
+
 <div class="logo col-md-12">
     <img alt="Minimal Clean Responsive" height="220px; " id="logo" src="http://2.bp.blogspot.com/-X06cj7cX0X8/VQ7IoUng9cI/AAAAAAAAEhM/2TNeAsAsTV8/s1600/MINIMAL-LOGO-NEW.png" width="420px;" class="center-block img-responsive">
 </div>
+
 <div class="left-bar container col-md-offset-1 col-md-6">
           <% posts.forEach(function(post){ %>
                <div class="article">
@@ -14,9 +17,7 @@
                    <div class="date col-md-12">
                       <p><%= moment(post.date).format("MMM Do YY") %></p>                 
                    </div> 
-
                     <a href="/blog/<%= post.id %>"><img src="/uploads/<%= post.mainImageName %>" alt="<%= post.mainImageName %>" class='image img-responsive' ></a>                
-
                    <div class="body col-md-12">
                       <p><%= post.body %></p>                
                    </div>

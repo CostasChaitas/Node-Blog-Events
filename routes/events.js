@@ -3,59 +3,61 @@ var router = express.Router();
 var mongoose   = require('mongoose');
 var multerMiddleware = require("../middlewares/multer");
 
-
-var Post = require("../models/post");
-
+var Events = require("../models/events");
 
 /* GET users listing. */
-router.get('/add',isLoggedIn, function(req, res, next) {
+router.get('/', function(req, res, next) {
     
-  Post.find({},{}, function(err, categories){
+  Events.find({},{}, function(err, events){
       if(err){
         console.log(err);
       }else{
         
-         res.render('addpost',{
+         res.render('events',{
+			"events":events
+		}); 
+      }	
+	});   
+});
+
+/* GET users listing. */
+router.get('/add',isLoggedIn, function(req, res, next) {
+    
+  Events.find({},{}, function(err, events){
+      if(err){
+        console.log(err);
+      }else{
+        
+         res.render('addEvent',{
 			
 		}); 
       }	
 	});  
 });
 
+
 router.post('/add', multerMiddleware.single('mainImageName'), function(req, res, next){
 	// Get Form Values
 	var title 		= req.body.title;
-	var category 	= req.body.category;
-    var author 	    = req.body.author;
-	var body 		= req.body.body;
+	var location 	= req.body.location;
+    var body 	= req.body.body;
 	var date 		= new Date();
     var monthNames  = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
     var month       = monthNames[date.getMonth()];
-    
-    
-    var mainImageName 			= "noimage.png";
-	var mainImageOriginalName 	= "";
-	var mainImageMime 			= "";
-	var mainImagePath 			= "";
-	var mainImageSize 			= "";
-    
 
-    
-    if( typeof req.file !== "undefined") {
-      mainImageName 			= req.file['filename'] ;
-      mainImageOriginalName 	= req.file['originalname'];
-	  mainImageMime 			= req.file['mimetype'];
-	  mainImagePath 			= req.file['path'];
-	  mainImageSize 			= req.file['size'];
-	}
+      var mainImageName 			= req.file['filename'] ;
+      var mainImageOriginalName 	= req.file['originalname'];
+	  var mainImageMime 			= req.file['mimetype'];
+	  var mainImagePath 			= req.file['path'];
+	  var mainImageSize 			= req.file['size'];
+	
 
-    newPost = {
+    newEvent = {
         title: title,
-        category: category,
-        author: author,
-        body : body,
+        location: location,
+        body:body,
         date: date,
         month: month,
         mainImageName: mainImageName,
@@ -63,18 +65,22 @@ router.post('/add', multerMiddleware.single('mainImageName'), function(req, res,
     }
     
    
-    Post.create(newPost,function(err, ok){
+    Events.create(newEvent,function(err, ok){
         if(err){
             console.log(err);
             
         }else{
            
             console.log(ok);
+            
             res.render('index', { message: req.flash('info') });
         }
     });
    
 });
+
+
+
 
 
 // route middleware to make sure a user is logged in
