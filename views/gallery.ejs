@@ -1,20 +1,23 @@
 <% include ./partials/header %>
 
-
+    
 <div class="logo col-md-12">
     <img alt="Minimal Clean Responsive" height="220px; " id="logo" src="http://2.bp.blogspot.com/-X06cj7cX0X8/VQ7IoUng9cI/AAAAAAAAEhM/2TNeAsAsTV8/s1600/MINIMAL-LOGO-NEW.png" width="420px;" class="center-block img-responsive">
 </div>
 
-<div class="gallery container col-md-offset-1 col-md-10">
-          <% photos.forEach(function(photo){ %>
-               <div class="article">
-                   <div class="photos col-md-6 col-sm-12">
-                      <img src="/uploads/<%= photo.mainImageName %>" alt="<%= photo.mainImageName %>" class='image img-responsive' >               
-                   </div>
-                </div> 
-           <% }); %>          
-</div>
+<div class="gallery container col-md-offset-1 col-md-10" id ="aniimated-thumbnials">
+              <% photos.forEach(function(photo){ %>
+                  <div class="photos col-md-4 col-sm-12" >
+                      <a class="item" href="/uploads/<%= photo.mainImageName %>">
 
+                          <img src="/uploads/<%= photo.mainImageName %>" alt="<%= photo.mainImageName %>" class='image img-responsive' >  
+                      </a>
+                  </div>
+                            
+           <% }); %>   
+         </div>
+                
+</div>
 
 
 

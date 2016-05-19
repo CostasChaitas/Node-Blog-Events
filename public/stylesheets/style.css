@@ -72,6 +72,9 @@
     height:444px;
 
 }
+.image:hover{
+    opacity: 0.8;
+}
 
 
 .readMoreBtn {

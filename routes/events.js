@@ -41,11 +41,8 @@ router.post('/add', multerMiddleware.single('mainImageName'), function(req, res,
 	var title 		= req.body.title;
 	var location 	= req.body.location;
     var body 	= req.body.body;
-	var date 		= new Date();
-    var monthNames  = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
-    var month       = monthNames[date.getMonth()];
+	var date 		= req.body.date;
+
 
       var mainImageName 			= req.file['filename'] ;
       var mainImageOriginalName 	= req.file['originalname'];
@@ -59,7 +56,6 @@ router.post('/add', multerMiddleware.single('mainImageName'), function(req, res,
         location: location,
         body:body,
         date: date,
-        month: month,
         mainImageName: mainImageName,
         mainImageOriginalName: mainImageOriginalName
     }
